@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>AI-Based Threat Hunting Dashboard</title>
+    
+</head>
+<body>
+    <header>
+        AI-Based Threat Hunting Dashboard
+        <div class="network-status" id="networkStatus">Checking Network Status...</div>
+        <button id="toggleCapture" class="toggle-button">Start</button>
+    </header>
+
+<div class="main">
+    <div class="left-partition">
+        <h2>Visualizations</h2>
+        <h4>  <center> Time/Payload</center> </h4>
+        <canvas id="trafficTrendChart"></canvas>
+        <h4>   <center>Protocols.....</center> </h4>
+        <canvas id="protocolDistributionChart"></canvas>
+        <h4>   <center>Attack Types </center></h4>
+        <canvas id="attackTypeChart"></canvas>
+        <h4>   <center>Attack Severity</center>  </h4>
+        <canvas id="attackSeverityChart"></canvas>
+    </div>
+
+    <div class="right-partition">
+        <section>
+            <h2>Live Network Traffic</h2>
+            <div class="traffic-box">
+                <table id="networkTrafficTable">
+                    <tr>
+                        <th>Time</th>
+                        <th>Source IP</th>
+                        <th>Destination IP</th>
+                        <th>Protocol</th>
+                        <th>Traffic Volume</th>
+                        <th>Status</th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>Vulnerability Alerts</h2>
+            <div class="alert-box" id="vulnerabilityAlerts"></div>
+        </section>
+
+        <section>
+            <h2>Traffic Blocking</h2>
+
+
+            <div class="traffic-box">
+                <table id="trafficBlockingTable">
+                    <tr>
+                        <th>Time</th>
+                        <th>Source IP</th>
+                        <th>Problem</th>
+                        <th>Severity</th>
+                        <th>Action</th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+
+          
+  
+
+          <!-- Blocked Traffic Section -->
+<div class="mt-4">
+    <h3>Blocked Traffic</h3>
+    <ul class="nav nav-tabs" id="update_blocked_ips">
+        <li class="nav-item">
+            <a class="nav-link active" id="temporary-tab" data-bs-toggle="tab" href="#temporary">Temporary Blocks</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="permanent-tab" data-bs-toggle="tab" href="#permanent">Permanent Blocks</a>
+        </li>
+        
+    </ul>
+
+    <div class="tab-content mt-2">
+        <!-- Temporary Blocked IPs -->
+        <div class="tab-pane fade show active" id="temporary">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Time</th>
+                        <th>Source IP</th>
+                        <th>Reason</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="temporaryBlockedTable">
+                    <!-- Data dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Permanent Blocked IPs -->
+        <div class="tab-pane fade" id="permanent">
+            <table class="table table-bordered">
+                <thead class="table-danger">
+                    <tr>
+                        <th>Time</th>
+                        <th>Source IP</th>
+                        <th>Reason</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="permanentBlockedTable">
+                    <!-- Data dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        
+    </div>
+</div>
+</div>
+
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>

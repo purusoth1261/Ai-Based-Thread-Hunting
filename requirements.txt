@@ -1,0 +1,14 @@
+Flask==2.3.2
+Flask-SocketIO==5.3.6
+gevent==23.9.1
+greenlet==3.0.3
+tensorflow==2.16.1
+scikit-learn==1.4.2
+joblib==1.4.0
+scapy==2.5.0
+numpy==1.26.4
+pandas==2.2.2
+psutil==5.9.8
+requests==2.31.0
+python-engineio==4.9.0
+python-socketio==5.11.2

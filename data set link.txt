@@ -1,0 +1,2 @@
+https://www.kaggle.com/datasets/sateeshkumar6289/cicids-2017-dataset 
+https://www.kaggle.com/datasets/mrwellsdavid/unsw-nb15

@@ -1,0 +1,76 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    position: relative;
+}
+.network-status {
+    font-size: 16px;
+    margin-top: 5px;
+}
+.toggle-button {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    padding: 10px 20px;
+    background-color: #29dd2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.toggle-button.off {
+    background-color: #ff0303;
+}
+.main {
+    display: flex;
+    flex: 1;
+}
+.left-partition {
+    width: 30%;
+    background-color: #ffffff;
+    padding: 10px;
+    overflow-y: auto;
+}
+.right-partition {
+    width: 70%;
+    padding: 10px;
+    overflow-y: auto;
+}
+section {
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #0d6efd;
+    color: white;
+}
+.alert-box, .traffic-box {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.alert-critical { background-color: red; color: white; padding: 5px; }
+.alert-high { background-color: orange; padding: 5px; }
+.alert-medium { background-color: yellow; color: black; padding: 5px; }
+.alert-low { background-color: rgb(30, 221, 52); color: white; padding: 5px; }
