@@ -1,9 +1,10 @@
+huggingface_hub>=0.27.1,<1.0
 Flask==2.3.2
 Flask-SocketIO==5.3.6
 gevent==23.9.1
 greenlet==3.0.3
 tensorflow==2.16.1
-scikit-learn==1.4.2
+scikit-learn==1.4.1.post1
 joblib==1.4.0
 scapy==2.5.0
 numpy==1.26.4

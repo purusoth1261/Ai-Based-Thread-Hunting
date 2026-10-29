@@ -13,6 +13,8 @@ import time
 import json
 import hashlib
 import subprocess
+import threading
+import webbrowser
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -809,5 +811,40 @@ def test_features():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     socketio.run(app, debug=True, host='0.0.0.0', port=5000, use_reloader=False)
+
+if __name__ == "__main__":
+    print("\n" + "=" * 50)
+    print("AI-BASED THREAD HUNTING SERVER")
+    print("=" * 50)
+    print("Website URL: http://127.0.0.1:5000")
+    print("Network URL: http://localhost:5000")
+    print("=" * 50 + "\n")
+
+    socketio.run(
+        app,
+        debug=True,
+        host="0.0.0.0",
+        port=5000,
+        use_reloader=False
+    )"""
+
+if __name__ == "__main__":
+    url = "http://127.0.0.1:5000"
+
+    print("\n" + "=" * 50)
+    print("AI-BASED THREAD HUNTING SERVER")
+    print("=" * 50)
+    print(f"Website URL: {url}")
+    print("=" * 50 + "\n")
+
+    threading.Timer(2, lambda: webbrowser.open(url)).start()
+
+    socketio.run(
+        app,
+        debug=True,
+        host="0.0.0.0",
+        port=5000,
+        use_reloader=False
+    )
