@@ -19,11 +19,33 @@ socketio = SocketIO(app)
 # Define model and label encoder file paths
 MODEL_DIR = "E:\\Major project final\\models\\"
 
+"""MODEL1_PATH = os.path.join(MODEL_DIR, "modeladvlatest.pkl")
+LABEL_ENCODER1_PATH = os.path.join(MODEL_DIR, "label_encoderlatest.pkl")
+
+MODEL2_PATH = os.path.join(MODEL_DIR, "final_model2normal.pkl")
+LABEL_ENCODER2_PATH = os.path.join(MODEL_DIR, "label_encoder21normal.pkl")"""
+#huggy face modulation 
+'''model1 = joblib.load(MODEL1_PATH)
+model2 = joblib.load(MODEL2_PATH)
+label_encoder1 = joblib.load(LABEL_ENCODER1_PATH)
+label_encoder2 = joblib.load(LABEL_ENCODER2_PATH)
+'''
+# Resolve paths relative to this project's folder
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "models")
+
+# Model and label encoder paths
 MODEL1_PATH = os.path.join(MODEL_DIR, "modeladvlatest.pkl")
 LABEL_ENCODER1_PATH = os.path.join(MODEL_DIR, "label_encoderlatest.pkl")
 
 MODEL2_PATH = os.path.join(MODEL_DIR, "final_model2normal.pkl")
 LABEL_ENCODER2_PATH = os.path.join(MODEL_DIR, "label_encoder21normal.pkl")
+
+# Load models and label encoders
+model1 = joblib.load(MODEL1_PATH)
+model2 = joblib.load(MODEL2_PATH)
+label_encoder1 = joblib.load(LABEL_ENCODER1_PATH)
+label_encoder2 = joblib.load(LABEL_ENCODER2_PATH)
 
 def check_and_train_models():
     """
@@ -50,11 +72,11 @@ check_and_train_models()
 
 # Load models and label encoders
 #model1 = tf.keras.models.load_model("E:\\Major project final\\models\\modeladvlatest.pkl")
-model1 = joblib.load("E:\\Major project final\\models\\modeladvlatest.pkl")
+"""model1 = joblib.load("E:\\Major project final\\models\\modeladvlatest.pkl")
 model2 = joblib.load("E:\\Major project final\\models\\final_model2normal.pkl")
 label_encoder1 = joblib.load("E:\\Major project final\\models\\label_encoderlatest.pkl")
 label_encoder2 = joblib.load("E:\\Major project final\\models\\label_encoder21normal.pkl")
-
+"""
 # Updated Required Features for Model 1 (CNN-LSTM, TensorFlow)
 required_features_1 = [
     'id', 'dur', 'proto', 'service', 'state', 'spkts', 'dpkts', 'sbytes', 'dbytes', 'rate',
